@@ -1,0 +1,24 @@
+Year,Location,Parasite,Treatment,Rep,Source,Fish length,count1,count2,count3,count4,count5,meancount,avgcellsperml,avgsporesperdaphperml,sporesperdaphnia
+2012,GaTech,Pasteuria,Fish,1,Fish pellet,57,563,502,437,?,?,16.68888889,?,?,834444.4444
+2012,GaTech,Pasteuria,Fish,2,Fish pellet,41,924,855,898,?,?,29.74444444,?,?,1487222.222
+2012,GaTech,Pasteuria,Fish,3,Fish pellet,45,390,436,440,?,?,14.06666667,?,?,703333.3333
+2012,GaTech,Pasteuria,Fish,4,Fish pellet,50,618,669,681,?,?,21.86666667,?,?,1093333.333
+2012,GaTech,Pasteuria,Control,1,Control,?,917,945,899,?,?,30.67777778,?,?,1533888.889
+2012,GaTech,Pasteuria,Control,2,Control,?,1010,976,947,?,?,32.58888889,?,?,1629444.444
+2012,GaTech,Pasteuria,Control,3,Control,?,808,793,813,?,?,26.82222222,?,?,1341111.111
+2012,GaTech,Pasteuria,Control,4,Control,?,742,777,753,?,?,25.24444444,?,?,1262222.222
+2004,KBS,Metsch,Fish,1,Fish water,46,64,0,0,0,1,0.25,625,20.83333333,6250
+2004,KBS,Metsch,Fish,2,Fish water,40,64,0,0,2,0,0.5,1250,41.66666667,12500
+2004,KBS,Metsch,Fish,3,Fish water,45,64,0,0,0,1,0.25,625,20.83333333,6250
+2004,KBS,Metsch,Fish,4,Fish water,38,64,0,1,1,0,0.5,1250,41.66666667,12500
+2004,KBS,Metsch,Fish,5,Fish water,38,64,0,0,0,0,0,0,0,0
+2004,KBS,Metsch,Fish,1,Fish pellet,46,64,31,38,?,?,34.5,86250,2875,28750
+2004,KBS,Metsch,Fish,2,Fish pellet,40,64,3,4,3,3,3.25,8125,270.8333333,2708.333333
+2004,KBS,Metsch,Fish,3,Fish pellet,45,64,31,36,?,?,33.5,83750,2791.666667,27916.66667
+2004,KBS,Metsch,Fish,4,Fish pellet,38,64,47,50,?,?,48.5,121250,4041.666667,40416.66667
+2004,KBS,Metsch,Fish,5,Fish pellet,38,64,39,33,?,?,36,90000,3000,30000
+2004,KBS,Metsch,Control,1,Control,?,64,42,45,?,?,43.5,108750,7250,72500
+2004,KBS,Metsch,Control,2,Control,?,64,43,43,?,?,43,107500,7166.666667,71666.66667
+2004,KBS,Metsch,Control,3,Control,?,64,49,43,?,?,46,115000,7666.666667,76666.66667
+2004,KBS,Metsch,Control,4,Control,?,64,39,35,?,?,37,92500,6166.666667,61666.66667
+2004,KBS,Metsch,Control,5,Control,?,64,36,43,?,?,39.5,98750,6583.333333,65833.33333

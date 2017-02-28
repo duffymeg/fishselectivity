@@ -1,5 +1,5 @@
 ---
-title: "Fish_Selectivity"
+title: "Fish Selectivity"
 author: "Meghan Duffy"
 date: "2/28/2017"
 output: html_document
@@ -49,4 +49,82 @@ fullplot <- fish %>%
   geom_hline(yintercept = 0.5, linetype="dotted") 
 
 fullplot
+
+save_plot("fullplot.jpg", fullplot, base_height=4, base_width = 6)
 ```
+
+## Now looking at data on spore retrieval after fish gut passage
+
+```{r, import spore data}
+spore <- read.csv("FishGutPassageSummary20042012.csv", na.strings = "?")
+head(spore)
+colnames(spore)
+str(spore)
+```
+```{r, make plot for all spore recovery data}
+metschsporeplot <- spore %>%
+  filter(Parasite==c("Metsch")) %>%
+  ggplot(aes(x=Source,y=sporesperdaphnia)) +
+  geom_point(size=4,position=position_jitter(w=0.3, h = 0.0)) +
+  ylab("Spores per Daphnia") +
+  ggtitle("Metschnikowia")
+
+pastsporeplot <- spore %>%
+  filter(Parasite==c("Pasteuria")) %>%
+  ggplot(aes(x=Source,y=sporesperdaphnia)) +
+  geom_point(size=4) +
+  ylab("Spores per Daphnia") +
+  ggtitle("Pasteuria")
+
+combinedplot <- ggdraw() +
+  draw_plot(metschsporeplot,0,0,0.6,1.0) +
+  draw_plot(pastsporeplot,0.6,0,0.4,1.0) 
+
+combinedplot
+
+save_plot("combinedplot.jpg", combinedplot)
+```
+
+```{r, make boxplots for all spore recovery data}
+metschsporeboxplot <- spore %>%
+  filter(Parasite==c("Metsch")) %>%
+  ggplot(aes(x=Source,y=sporesperdaphnia)) +
+  geom_boxplot() +
+  ylab("Spores per Daphnia") +
+  ggtitle("Metschnikowia")
+
+pastsporeboxplot <- spore %>%
+  filter(Parasite==c("Pasteuria")) %>%
+  ggplot(aes(x=Source,y=sporesperdaphnia)) +
+  geom_boxplot() +
+  ylab("Spores per Daphnia") +
+  ggtitle("Pasteuria")
+
+combinedboxplot <- ggdraw() +
+  draw_plot(metschsporeboxplot,0,0,0.6,1.0) +
+  draw_plot(pastsporeboxplot,0.6,0,0.4,1.0) 
+
+combinedboxplot
+
+save_plot("combinedboxplot.jpg", combinedboxplot, base_height=4, base_width = 8)
+```
+## Finally, make a plot showing the infectivity of the spores retrieved from fish fecal pellets
+
+```{r, import data on infectivity after gut passage}
+inf <- read.csv("FishGutPassageInfectivitySummary20042012.csv", na.strings = "?")
+head(inf)
+colnames(inf)
+str(inf)
+```
+```{r, make plot for all spore infectivity data}
+infplot <- inf %>%
+  ggplot(aes(x=Parasite,y=AvgPropInf,color=Treatment)) +
+  scale_colour_manual(values=c("#000000","#999999")) +
+  geom_boxplot() +
+  ylab("Proportion infected") 
+
+infplot
+
+save_plot("infplot.jpg", infplot, base_height=4, base_width = 6)
+```
+
