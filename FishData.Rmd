@@ -1,0 +1,52 @@
+---
+title: "Fish_Selectivity"
+author: "Meghan Duffy"
+date: "2/28/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Plot of data collected in 2002-2003 on selectivity of fish predation on infected Daphnia
+Raw data are available in photocopies of lab notebooks.
+Data used in this file are taken from a Systat file that was originally created back when first analyzed data (e.g., for Duffy et al. 2005 L&O and for Duffy & Hall 2008 AmNat)
+
+```{r,load libraries,message=FALSE,echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(cowplot)
+library(stringr)
+```
+
+```{r, import data}
+fish <- read.csv("FishSummary20022003_forR.csv", na.strings = "?")
+head(fish)
+colnames(fish)
+str(fish)
+```
+
+```{r, make plot for metsch}
+metschplot <- fish %>%
+  filter(Comparison ==c("Metsch")) %>%
+  ggplot(aes(x=Infected,y=Alpha,fill=Host,shape=Lake)) +
+  geom_point() +
+  ylab("Chesson's alpha") +
+  theme_bw()
+
+metschplot
+```
+
+```{r, make plot for all parasites leaving off uninfected data}
+fullplot <- fish %>%
+  filter(Infected ==c("Infected")) %>%
+  ggplot(aes(x=Parasite,y=Alpha,colour=Host,shape=Lake)) +
+  scale_colour_manual(values=c("black","gray")) +
+  geom_point(size=4) +
+  ylab("Chesson's alpha") +
+  scale_y_continuous(limits=c(0.5,1.0)) +
+  geom_hline(yintercept = 0.5, linetype="dotted") 
+
+fullplot
+```
