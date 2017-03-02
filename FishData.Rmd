@@ -116,6 +116,21 @@ head(inf)
 colnames(inf)
 str(inf)
 ```
+```{r, stats on spore yield after fish gut passage}
+spore %>%
+  filter(Parasite==c("Metsch")) %>%
+  group_by(Source) %>%
+  summarise(mean=mean(sporesperdaphnia),median=median(sporesperdaphnia))
+
+spore %>%
+  filter(Parasite==c("Pasteuria")) %>%
+  group_by(Source) %>%
+  summarise(mean=mean(sporesperdaphnia),median=median(sporesperdaphnia))
+
+pastspores <- subset(spore,Parasite==c("Pasteuria"))
+t.test(pastspores$sporesperdaphnia ~ pastspores$Treatment)
+```
+  
 ```{r, make plot for all spore infectivity data}
 infplot <- inf %>%
   ggplot(aes(x=Parasite,y=AvgPropInf,color=Treatment)) +
